@@ -919,5 +919,431 @@
         }
       ]
     }
+  },
+  "welcomeIntent": {
+    "version": "1.0",
+    "sessionAttributes": {},
+    "response": {
+      "outputSpeech": {
+        "type": "SSML",
+        "ssml": "<speak>Welcome to our organization.Now you can check yourbalance, current plan and projected bill.How may I help you?</speak>"
+      },
+      "directives": [
+        {
+          "type": "Alexa.Presentation.APL.RenderDocument",
+          "token": "[SkillProvidedToken]",
+          "document": {
+            "type": "APL",
+            "version": "1.1",
+            "settings": {},
+            "theme": "dark",
+            "import": [
+              {
+                "name": "alexa-layouts",
+                "version": "1.0.0"
+              }
+            ],
+            "resources": [
+              {
+                "description": "Stock color for the light theme",
+                "colors": {
+                  "colorTextPrimary": "#151920"
+                }
+              },
+              {
+                "description": "Stock color for the dark theme",
+                "when": "${viewport.theme == 'dark'}",
+                "colors": {
+                  "colorTextPrimary": "#f0f1ef"
+                }
+              },
+              {
+                "description": "Standard font sizes",
+                "dimensions": {
+                  "textSizeBody": 48,
+                  "textSizePrimary": 27,
+                  "textSizeSecondary": 23,
+                  "textSizeSecondaryHint": 25
+                }
+              },
+              {
+                "description": "Common spacing values",
+                "dimensions": {
+                  "spacingThin": 6,
+                  "spacingSmall": 12,
+                  "spacingMedium": 24,
+                  "spacingLarge": 48,
+                  "spacingExtraLarge": 72
+                }
+              },
+              {
+                "description": "Common margins and padding",
+                "dimensions": {
+                  "marginTop": 40,
+                  "marginLeft": 60,
+                  "marginRight": 60,
+                  "marginBottom": 40
+                }
+              }
+            ],
+            "styles": {
+              "textStyleBase": {
+                "description": "Base font description; set color",
+                "values": [
+                  {
+                    "color": "@colorTextPrimary"
+                  }
+                ]
+              },
+              "textStyleBase0": {
+                "description": "Thin version of basic font",
+                "extend": "textStyleBase",
+                "values": {
+                  "fontWeight": "100"
+                }
+              },
+              "textStyleBase1": {
+                "description": "Light version of basic font",
+                "extend": "textStyleBase",
+                "values": {
+                  "fontWeight": "300"
+                }
+              },
+              "mixinBody": {
+                "values": {
+                  "fontSize": "@textSizeBody"
+                }
+              },
+              "mixinPrimary": {
+                "values": {
+                  "fontSize": "@textSizePrimary"
+                }
+              },
+              "mixinSecondary": {
+                "values": {
+                  "fontSize": "@textSizeSecondary"
+                }
+              },
+              "textStylePrimary": {
+                "extend": [
+                  "textStyleBase1",
+                  "mixinPrimary"
+                ]
+              },
+              "textStyleSecondary": {
+                "extend": [
+                  "textStyleBase0",
+                  "mixinSecondary"
+                ]
+              },
+              "textStyleBody": {
+                "extend": [
+                  "textStyleBase1",
+                  "mixinBody"
+                ]
+              },
+              "textStyleSecondaryHint": {
+                "values": {
+                  "fontFamily": "Bookerly",
+                  "fontStyle": "italic",
+                  "fontSize": "@textSizeSecondaryHint",
+                  "color": "@colorTextPrimary"
+                }
+              }
+            },
+            "onMount": [],
+            "graphics": {},
+            "commands": {},
+            "layouts": {},
+            "mainTemplate": {
+              "parameters": [
+                "payload"
+              ],
+              "items": [
+                {
+                  "type": "Container",
+                  "width": "100vw",
+                  "height": "100vh",
+                  "items": [
+                    {
+                      "type": "AlexaHeader",
+                      "headerTitle": "${payload.bodyTemplate2Data.title}",
+                      "headerAttributionImage": "${payload.bodyTemplate2Data.logoUrl}"
+                    },
+                    {
+                      "type": "Container",
+                      "direction": "row",
+                      "paddingLeft": "60dp",
+                      "paddingRight": "72dp",
+                      "grow": 1,
+                      "shrink": 1,
+                      "height": "100vh",
+                      "items": [
+                        {
+                          "type": "Text",
+                          "width": "60vw",
+                          "paddingLeft": "12dp",
+                          "paddingTop": "12dp",
+                          "paddingRight": "12dp",
+                          "paddingBottom": "12dp",
+                          "fontSize": "40dp",
+                          "text": "Welcome to our organization.Now you can check yourbalance, current plan and projected bill.How may I help you?"
+                        },
+                        {
+                          "type": "Image",
+                          "width": "30vw",
+                          "source": "https://www.reliant.com/en/Images/TFW-Google-Nest-Hub.jpg",
+                          "scale": "best-fit",
+                          "align": "center"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "AlexaFooter",
+                      "footerHint": "${payload.bodyTemplate2Data.hintText}"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "datasources": {
+            "bodyTemplate2Data": {
+              "type": "object",
+              "objectId": "bt2Sample",
+              "title": "My Organization",
+              "logoUrl": "https://d2o906d8ln7ui1.cloudfront.net/images/cheeseskillicon.png",
+              "hintText": "Try, \"Alexa, what is my balance?\""
+            }
+          }
+        }
+      ]
+    }
+  },
+  "ARBalance":{
+    "version": "1.0",
+    "sessionAttributes": {},
+    "response": {
+      "outputSpeech": {
+        "type": "SSML",
+        "ssml": "<speak>Welcome to our organization.Now you can check yourbalance, current plan and projected bill.How may I help you?</speak>"
+      },
+      "directives": [
+        {
+          "type": "Alexa.Presentation.APL.RenderDocument",
+          "token": "[SkillProvidedToken]",
+          "document": {
+    "type": "APL",
+    "version": "1.1",
+    "settings": {},
+    "theme": "dark",
+    "import": [
+        {
+            "name": "alexa-layouts",
+            "version": "1.0.0"
+        }
+    ],
+    "resources": [
+        {
+            "description": "Stock color for the light theme",
+            "colors": {
+                "colorTextPrimary": "#151920"
+            }
+        },
+        {
+            "description": "Stock color for the dark theme",
+            "when": "${viewport.theme == 'dark'}",
+            "colors": {
+                "colorTextPrimary": "#f0f1ef"
+            }
+        },
+        {
+            "description": "Standard font sizes",
+            "dimensions": {
+                "textSizeBody": 48,
+                "textSizePrimary": 27,
+                "textSizeSecondary": 23,
+                "textSizeSecondaryHint": 25
+            }
+        },
+        {
+            "description": "Common spacing values",
+            "dimensions": {
+                "spacingThin": 6,
+                "spacingSmall": 12,
+                "spacingMedium": 24,
+                "spacingLarge": 48,
+                "spacingExtraLarge": 72
+            }
+        },
+        {
+            "description": "Common margins and padding",
+            "dimensions": {
+                "marginTop": 40,
+                "marginLeft": 60,
+                "marginRight": 60,
+                "marginBottom": 40
+            }
+        }
+    ],
+    "styles": {
+        "textStyleBase": {
+            "description": "Base font description; set color",
+            "values": [
+                {
+                    "color": "@colorTextPrimary"
+                }
+            ]
+        },
+        "textStyleBase0": {
+            "description": "Thin version of basic font",
+            "extend": "textStyleBase",
+            "values": {
+                "fontWeight": "100"
+            }
+        },
+        "textStyleBase1": {
+            "description": "Light version of basic font",
+            "extend": "textStyleBase",
+            "values": {
+                "fontWeight": "300"
+            }
+        },
+        "mixinBody": {
+            "values": {
+                "fontSize": "@textSizeBody"
+            }
+        },
+        "mixinPrimary": {
+            "values": {
+                "fontSize": "@textSizePrimary"
+            }
+        },
+        "mixinSecondary": {
+            "values": {
+                "fontSize": "@textSizeSecondary"
+            }
+        },
+        "textStylePrimary": {
+            "extend": [
+                "textStyleBase1",
+                "mixinPrimary"
+            ]
+        },
+        "textStyleSecondary": {
+            "extend": [
+                "textStyleBase0",
+                "mixinSecondary"
+            ]
+        },
+        "textStyleBody": {
+            "extend": [
+                "textStyleBase1",
+                "mixinBody"
+            ]
+        },
+        "textStyleSecondaryHint": {
+            "values": {
+                "fontFamily": "Bookerly",
+                "fontStyle": "italic",
+                "fontSize": "@textSizeSecondaryHint",
+                "color": "@colorTextPrimary"
+            }
+        }
+    },
+    "onMount": [],
+    "graphics": {},
+    "commands": {},
+    "layouts": {},
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "Container",
+                "width": "100vw",
+                "height": "100vh",
+                "items": [
+                    {
+                        "headerTitle": "My Organization",
+                        "headerAttributionImage": "${payload.bodyTemplate2Data.logoUrl}",
+                        "type": "AlexaHeader"
+                    },
+                    {
+                        "type": "Container",
+                        "width": "100%",
+                        "height": "100vh",
+                        "paddingLeft": "60dp",
+                        "paddingRight": "72dp",
+                        "direction": "row",
+                        "items": [
+                            {
+                                "type": "ScrollView",
+                                "height": "100%",
+                                "grow": 1,
+                                "shrink": 1,
+                                "item": [
+                                    {
+                                        "type": "Container",
+                                        "items": [
+                                            {
+                                                "type": "Text",
+                                                "style": "textStylePrimary",
+                                                "text": "Your account balance with  our organization is"
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "style": "textStyleBody",
+                                                "color": "red",
+                                                "text": "$80.36"
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "style": "textStylePrimary",
+                                                "color": "red",
+                                                "text": "Past Due"
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "style": "textStylePrimary",
+                                                "paddingTop": "40dp",
+                                                "paddingRight": "70dp",
+                                                "color": "red",
+                                                "fontSize": "40dp",
+                                                "text": "Due on 08/04/2",
+                                                "spacing": "@spacingSmall"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Image",
+                                "width": "30%",
+                                "height": "384",
+                                "source": "https://www.reliant.com/en/Images/TFW-Google-Nest-Hub.jpg",
+                                "align": "top"
+                            }
+                        ],
+                        "grow": 1,
+                        "shrink": 1
+                    },
+                    {
+                        "footerHint": "Alexa, what is my projected bill?",
+                        "type": "AlexaFooter"
+                    }
+                ]
+            }
+        ]
+    }
+}
+          
+        }
+      ]
+    }
   }
+
+
+
 }

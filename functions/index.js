@@ -24,11 +24,19 @@ app.post('/say/hello', (req, res) => {
   //return res.status(200).json({"message":"Hello there... Welcome to mock server."});
  
   res.setHeader('Content-Type', 'application/json');
-  var dataToAlexa=responseData.welcomeAPI
+  var dataToAlexa=responseData.welcomeIntent
   if('intent' in req.body.request )
   {
-    if(req.body.request.intent.name=="firebase")
-    dataToAlexa=responseData.firebase;
+    if('name' in req.body.request.intent)
+    {
+      if(req.body.request.intent.name=="firebase")
+      dataToAlexa=responseData.firebase;
+      if(req.body.request.intent.name=="ARBalance")
+      dataToAlexa=responseData.ARBalance;
+    }
+    else
+      var dataToAlexa=responseData.welcomeIntent
+
   }
   res.end(JSON.stringify(dataToAlexa));
 });
